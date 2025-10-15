@@ -10,8 +10,8 @@ import {
   Post,
 } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { LedgerService } from './ledger.service.js';
-import { DebitDto } from './dto/debit.dto.js';
+import { LedgerService } from './ledger.service';
+import { DebitDto } from './dto/debit.dto';
 
 @ApiTags('ledger')
 @Controller('users/:id')

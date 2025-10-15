@@ -8,10 +8,10 @@ import {
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { DataSource, Repository } from 'typeorm';
-import { LedgerEntry } from './ledger-entry.entity.js';
-import { User } from '../users/user.entity.js';
-import { toCents } from '../common/money.js';
 import type { Cache } from 'cache-manager';
+import { LedgerEntry } from './ledger-entry.entity';
+import { User } from '@/users/user.entity';
+import { toCents } from '@/common/money';
 
 @Injectable()
 export class LedgerService {

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "es2022",
-    "moduleResolution": "bundler",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "target": "es2022",
     "lib": ["es2022"],
     "emitDecoratorMetadata": true,
@@ -13,8 +13,12 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "*": ["src/*"]
-    }
+      "@/*": ["src/*"]
+    },
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

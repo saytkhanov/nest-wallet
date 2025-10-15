@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
   JoinColumn,
 } from 'typeorm';
-import { User } from '../users/user.entity.js';
+import { User } from '@/users/user.entity';
 
 export type Action = 'DEBIT' | 'CREDIT';
 

@@ -1,6 +1,7 @@
-import { DataSource, DataSourceOptions } from 'typeorm';
-import { User } from '../../users/user.entity.js';
-import { LedgerEntry } from '../../ledger/ledger-entry.entity.js';
+import { DataSource } from 'typeorm';
+import type { DataSourceOptions } from 'typeorm';
+import { User } from '@/users/user.entity';
+import { LedgerEntry } from '@/ledger/ledger-entry.entity';
 
 export const makeTypeOrmOptions = (databaseUrl: string): DataSourceOptions => ({
   type: 'postgres',

@@ -1,10 +1,10 @@
 import 'reflect-metadata';
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module.js';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
-import { AllExceptionsFilter } from './common/http-exception.filter.js';
-import { GlobalValidationPipe } from './common/validation.pipe.js';
+import { AppModule } from '@/app.module';
+import { AllExceptionsFilter } from '@/common/http-exception.filter';
+import { GlobalValidationPipe } from '@/common/validation.pipe';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { bufferLogs: true });

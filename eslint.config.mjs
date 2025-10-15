@@ -25,6 +25,10 @@ export default [
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/interface-name-prefix': 'off',
       '@typescript-eslint/no-inferrable-types': 'off',
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        { prefer: 'type-imports', fixStyle: 'separate-type-imports' },
+      ],
     },
   },
 ];
