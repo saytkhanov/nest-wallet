@@ -34,7 +34,9 @@ export class LedgerService {
   }
 
   async debit(userId: number, amountDollars: number, idempotencyKey?: string) {
-    if (amountDollars <= 0) throw new BadRequestException('Amount must be > 0');
+    if (!Number.isFinite(amountDollars) || amountDollars <= 0) {
+      throw new BadRequestException('Amount must be > 0');
+    }
     const amountCents = toCents(amountDollars);
 
     return this.ds.transaction('READ COMMITTED', async (mgr) => {
@@ -85,7 +87,10 @@ export class LedgerService {
         .where('e.user_id = :userId', { userId })
         .getRawOne<{ balance: string }>();
 
-      const newBalance = Number(result?.balance ?? 0);
+      const newBalance = parseInt(result?.balance ?? '0', 10);
+      if (!Number.isSafeInteger(newBalance)) {
+        throw new ConflictException('Balance calculation overflow');
+      }
       if (newBalance < 0) {
         throw new ConflictException('Balance would become negative');
       }
